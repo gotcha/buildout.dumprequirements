@@ -23,8 +23,8 @@ def _log_requirement(ws, req):
 
 
 def enable_dumping_picked_versions(old_get_dist):
-    def get_dist(self, requirement, ws, always_unzip):
-        dists = old_get_dist(self, requirement, ws, always_unzip)
+    def get_dist(self, requirement, ws):
+        dists = old_get_dist(self, requirement, ws)
         for dist in dists:
             if not (dist.precedence == pkg_resources.DEVELOP_DIST or \
                     (len(requirement.specs) == 1 and requirement.specs[0][0] == '==')):
